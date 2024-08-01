@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+  rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+<script src="https://cdn.tailwindcss.com/3.3.0"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      fontFamily: {
+        sans: ["'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"],
+        body: ["Roboto", "sans-serif"],
+        mono: ["ui-monospace", "monospace"],
+        calib :['Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; '],
+      },
+    },
+    corePlugins: {
+      preflight: false,
+    },
+  };
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+</head>
+<body>
+    <style>
+    
+@-webkit-keyframes animatetop {
+	from {
+		top: -300px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}
+@keyframes animatetop {
+	from {
+		top: -300px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}
+@-webkit-keyframes zoomIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale3d(0.3, 0.3, 0.3);
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
+	50% {
+		opacity: 1;
+	}
+}
+@keyframes zoomIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale3d(0.3, 0.3, 0.3);
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
+	50% {
+		opacity: 1;
+	}
+}
+/*End Animations*/
+/*
+-- Start BackGround Animation 
+*/
+.area {
+	background: white;
+	background: -webkit-linear-gradient(to left, rgb(57, 67, 255), #434dff);
+	width: 100%;
+	height: 110vh;
+	position: absolute;
+	z-index: -1;
+}
+
+.circles {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 96%;
+	overflow: hidden;
+}
+
+.circles li {
+	position: absolute;
+	display: block;
+	list-style: none;
+	width: 20px;
+	height: 20px;
+	background: rgba(31, 86, 239, 0.731);
+	animation: animate 25s linear infinite;
+	bottom: -150px;
+}
+
+.circles li:nth-child(1) {
+	left: 25%;
+	width: 80px;
+	height: 80px;
+	animation-delay: 0s;
+}
+
+.circles li:nth-child(2) {
+	left: 10%;
+	width: 20px;
+	height: 20px;
+	animation-delay: 2s;
+	animation-duration: 12s;
+}
+
+.circles li:nth-child(3) {
+	left: 70%;
+	width: 20px;
+	height: 20px;
+	animation-delay: 4s;
+}
+
+.circles li:nth-child(4) {
+	left: 40%;
+	width: 60px;
+	height: 60px;
+	animation-delay: 0s;
+	animation-duration: 18s;
+}
+
+.circles li:nth-child(5) {
+	left: 65%;
+	width: 20px;
+	height: 20px;
+	animation-delay: 0s;
+}
+
+.circles li:nth-child(6) {
+	left: 75%;
+	width: 110px;
+	height: 110px;
+	animation-delay: 3s;
+}
+
+.circles li:nth-child(7) {
+	left: 35%;
+	width: 150px;
+	height: 150px;
+	animation-delay: 7s;
+}
+
+.circles li:nth-child(8) {
+	left: 50%;
+	width: 25px;
+	height: 25px;
+	animation-delay: 15s;
+	animation-duration: 45s;
+}
+
+.circles li:nth-child(9) {
+	left: 20%;
+	width: 15px;
+	height: 15px;
+	animation-delay: 2s;
+	animation-duration: 35s;
+}
+
+.circles li:nth-child(10) {
+	left: 85%;
+	width: 150px;
+	height: 150px;
+	animation-delay: 0s;
+	animation-duration: 11s;
+}
+
+@keyframes animate {
+	0% {
+		transform: translateY(0) rotate(0deg);
+		opacity: 1;
+		border-radius: 0;
+	}
+
+	100% {
+		transform: translateY(-1000px) rotate(720deg);
+		opacity: 0;
+		border-radius: 50%;
+	}
+}
+    /* Hover effect for team cards */
+    .team-card:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+
+    /* Text animation */
+    .text-animation {
+        animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    </style>
+    	<!--Start Background Animation Body-->
+		<div class="area">
+			<ul class="circles">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	<div class="items-center justify-center flex flex-col">
+        <p class="text-5xl text-white px-6 text-animation rounded-full py-2 mt-4 mb-4 font-calib bg-indigo-900">Meet Our Team</p>
+      <div class="lg:flex  p-8 lg:px-8">
+        <div class="lg:flex team-card bg-indigo-900 bg-opacity-75 rounded-[10px] mr-4">
+            <div class="lg:w-2/5">
+                <img src="http://localhost/wordpress/wp-content/uploads/2023/12/1653717416105.jpeg" class="p-2 h-52 lg:w-44 w-full rounded-l-[10px] rounded"alt="">
+            </div>
+            <div class="lg:w-3/5"> 
+                 <p class="text-white text-animation font-calib px-5 text-2xl  bg-indigo-900 w-44 mt-2 rounded-3xl">Sadiq Basha</p>
+                 <p class="text-[15px] text-animation text-black px-2">Full Stack Developer</p>
+                <p class="text-white font-calib text-animation  leading-4  p-2">Meet sadiq, our team leader, orchestrating the symphony of insights from raw data. With an uncanny ability to unravel complex datasets, Alex leads the charge in transforming information into actionable intelligence, making data-driven decisions the heartbeat of our team's success.</p>
+            </div>
+        </div>
+        <div class="lg:flex team-card bg-indigo-900 bg-opacity-75 rounded-[10px] ml-4">
+            <div class="lg:w-2/5">
+                <img src="http://localhost/wordpress/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-12-at-10.29.48_82dc0025.jpg" class="p-2 h-52 lg:w-44 w-full rounded-l-[10px] rounded"alt="">
+            </div>
+            <div class="lg:w-3/5"> 
+                 <p class="text-white font-calib text-animation px-5 text-2xl  bg-indigo-900 w-44 mt-2 rounded-3xl">G. Dhanraj</p>
+                 <p class="text-[15px] text-black text-animation px-2">Data Analyst</p>
+                <p class="text-white font-calib text-animation leading-4  p-2">Meet Dhanraj, our Data Analyst, orchestrating the symphony of insights from raw data. With an uncanny ability to unravel complex datasets, Alex leads the charge in transforming information into actionable intelligence, making data-driven decisions the heartbeat of our team's success.</p>
+            </div>
+        </div>
+      </div>
+
+
+      <div class="lg:flex  p-8 lg:px-8">
+        <div class="lg:flex team-card bg-indigo-900 bg-opacity-75 rounded-[10px] mr-4">
+            <div class="lg:w-2/5">
+                <img src="http://localhost/wordpress/wp-content/uploads/2023/12/PODUGU-PRAVALLIKA.jpg" class="p-2 h-52 lg:w-44 w-full rounded-l-[10px] rounded"alt="">
+            </div>
+            <div class="lg:w-3/5"> 
+                 <p class="text-white text-animation font-calib px-5 text-2xl  bg-indigo-900 w-44 mt-2 rounded-3xl">P. Pravallika</p>
+                 <p class="text-[15px] text-animation text-black px-2">UI/UX Designer</p>
+                <p class="text-white text-animation font-calib  leading-4  p-2">Meet Pravallika, our Web Designer, orchestrating the symphony of insights from raw data. With an uncanny ability to unravel complex datasets, Alex leads the charge in transforming information into actionable intelligence, making data-driven decisions the heartbeat of our team's success.</p>
+            </div>
+        </div>
+        <div class="lg:flex team-card bg-indigo-900 bg-opacity-75 rounded-[10px] ml-4">
+            <div class="lg:w-2/5">
+                <img src="http://localhost/wordpress/wp-content/uploads/2023/12/Screenshot-2023-12-12-115020.png" class="p-2 h-52 lg:w-44 w-full rounded-l-[10px] rounded"alt="">
+            </div>
+            <div class="lg:w-3/5"> 
+                 <p class="text-white text-animation font-calib px-5 text-2xl  bg-indigo-900 w-44 mt-2 rounded-3xl">M. Vignesh</p>
+                 <p class="text-[15px] text-animation text-black px-2">ML developer</p>
+                <p class="text-white text-animation font-calib  leading-4  p-2">Meet vignesh, our team leader, orchestrating the symphony of insights from raw data. With an uncanny ability to unravel complex datasets, Alex leads the charge in transforming information into actionable intelligence, making data-driven decisions the heartbeat of our team's success.</p>
+            </div>
+        </div>
+      </div>
+      <script>
+        // Text animation on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".text-animation").forEach(function (element) {
+                element.style.opacity = 0;
+            });
+
+            let delay = 0;
+            document.querySelectorAll(".text-animation").forEach(function (element) {
+                delay += 0.2; // Adjust the delay as needed
+                element.style.animationDelay = delay + "s";
+                element.style.opacity = 1;
+            });
+        });
+    </script>
+
+</body>
+</html>

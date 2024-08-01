@@ -1,0 +1,56 @@
+<div class="container mx-auto mt-10 p-4">
+  <section class="w-full p-4 border rounded-lg shadow-lg">
+    <form id="qrForm" class="flex flex-col space-y-4">
+      <input type="text" placeholder="Input 1" class="input-field" id="input1" />
+      <input type="text" placeholder="Input 2" class="input-field" id="input2" />
+      <input type="text" placeholder="Input 3" class="input-field" id="input3" />
+      <input type="text" placeholder="Input 4" class="input-field" id="input4" />
+      <select class="input-field" id="dropdown">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </select>
+      <button type="button" id="generateQR" class="btn-generate disabled:opacity-50">
+        Generate QR
+      </button>
+      <a id="downloadQR" href="#" class="btn-download disabled:opacity-50" download>
+        Download QR
+      </a>
+    </form>
+  </section>
+</div>
+<script src="path/to/qr.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const qrForm = document.getElementById("qrForm");
+    const generateQRButton = document.getElementById("generateQR");
+    const downloadQRButton = document.getElementById("downloadQR");
+
+    // Disable download button initially
+    downloadQRButton.classList.add("disabled");
+
+    generateQRButton.addEventListener("click", function () {
+      // Get the values from the form inputs
+      const input1 = document.getElementById("input1").value;
+      const input2 = document.getElementById("input2").value;
+      const input3 = document.getElementById("input3").value;
+      const input4 = document.getElementById("input4").value;
+      const dropdown = document.getElementById("dropdown").value;
+
+      // Combine inputs and dropdown value into a single string
+      const qrText = `${input1}, ${input2}, ${input3}, ${input4}, ${dropdown}`;
+
+      // Generate QR code
+      const qrCode = new QRCode(document.getElementById("qrcode"), {
+        text: qrText,
+        width: 128,
+        height: 128,
+      });
+
+      // Enable and update download button
+      downloadQRButton.href = qrCode.toDataURL("image/png");
+      downloadQRButton.classList.remove("disabled");
+    });
+  });
+</script>
+  

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jsfiles/gettype2.js"></script>
+    <script src="jsfiles/genqr.js"></script>
+    <script src="jsfiles/genqr1.js"></script>
+
+      <script src="jsfiles/qrcode.min.js"></script>
+
+    <link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+  rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+<script src="https://cdn.tailwindcss.com/3.3.0"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      fontFamily: {
+        sans: ["Roboto", "sans-serif"],
+        body: ["Roboto", "sans-serif"],
+        mono: ["ui-monospace", "monospace"],
+      },
+    },
+    corePlugins: {
+      preflight: false,
+    },
+  };
+</script>
+</head>
+<body>
+    <div class="container mx-auto p-6 lg:flex justify-center items-center">
+        <!-- Left Side (Form) -->
+        <div class="w-full lg:w-1/2 qrform justify-center items-center flex flex-col bg-black ">
+            <div class="flex items-center">
+                <a href="index.html"><button id="" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 mr-2">Insert</button></a>
+                <a href="upadte.html"><button id="" class="bg-green-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600 mr-2">Update</button></a>
+              <a href="delete.html"><button id="" class="bg-red-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600">Delete</button></a>
+            </div>
+  
+            <!-- Insert Form -->
+          
+            <!-- Update Form (Initially Hidden) -->
+            <form class="p-6 rounded-lg justify-center items-center mx-auto mt-4" action="../backend/updateinventory.php" method="POST">
+                <!-- Update Form Inputs -->
+                <div class="mb-4 lg:flex lg:justify-between">
+                    <!-- Input 1: ID -->
+                    <div class="lg:w-1/2 mb-4 lg:mb-0">
+                        <label for="updateId" class="block text-gray-700 font-semibold mb-2">ID</label>
+                        <input type="text" id="uid" name="item_id" class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-500" placeholder="ID" required>
+                    </div>
+                    <!-- Input 2: Price -->
+                    <div class="lg:w-1/2 lg:pl-2">
+                        <label for="updatePrice" class="block text-gray-700 font-semibold mb-2">Price</label>
+                        <input type="number" id="uprice" name="price" class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-500" placeholder="Price" required>
+                    </div>
+                </div>
+                <div class="mb-4 lg:flex lg:justify-between">
+                    <!-- Input 3: Department -->
+                    <div class="lg:w-1/2 mb-4 lg:mb-0">
+                        <label for="updateDepartment" class="block text-gray-700 font-semibold mb-2">Department</label>
+                        <input type="text" id="udepartment" name="dept" class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-500" placeholder="Department" required>
+                    </div>
+                    <!-- Input 4: Date -->
+                    <div class="lg:w-1/2 lg:pl-2">
+                        <label for="updateDate" class="block text-gray-700 font-semibold mb-2">Date</label>
+                        <input type="date" id="udate" name="date" class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-500" required>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <!-- Input 5: Type (Dropdown) -->
+                    <label for="thirdFormTypeDropdown" class="block text-gray-700 font-semibold mb-2">Type</label>
+                    <select id="thirdFormTypeDropdown" name="type" class="type w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-500" required>
+                        
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <button type="button" onclick="generateQRCode1()" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Generate QR Code</button>
+                </div>
+                <div class="mb-4">
+                    <button type="submit" id="updateSubmitBtn" class="bg-green-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600">Update</button>
+                </div>
+            </form>
+  
+           
+        </div>
+  
+        <!-- Right Side (QR Code) -->
+        <div class="qrsection w-full lg:w-1/2 bg-gradient-to-r from-blue-500 to-purple-500 lg:flex lg:flex-col">
+            <div id="qrcode" class="mx-auto lg:mt-32 md:mt-32 mt-6" style="width: 300px; height: 300px;"></div>
+            <div class="mt-4 justify-center items-center flex">
+                <button id="downloadLink" class="hidden bg-black text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600" onclick="downloadQRCode()">Download QR Code</button>
+            </div>
+            <div id="inscontainer"></div>
+        </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+</body>
+</html>
